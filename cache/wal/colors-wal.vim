@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/rei/wallpaper/n2fAcSeR_4x.jpg"
+let background = "#261516"
+let foreground = "#f6efdf"
+let cursor     = "#f6efdf"
+
+" Colors
+let color0  = "#261516"
+let color1  = "#E6D8AF"
+let color2  = "#F6D2B8"
+let color3  = "#B3B7D4"
+let color4  = "#CBBCD6"
+let color5  = "#D4D1DD"
+let color6  = "#F5D7CA"
+let color7  = "#f6efdf"
+let color8  = "#aca79c"
+let color9  = "#E6D8AF"
+let color10 = "#F6D2B8"
+let color11 = "#B3B7D4"
+let color12 = "#CBBCD6"
+let color13 = "#D4D1DD"
+let color14 = "#F5D7CA"
+let color15 = "#f6efdf"
