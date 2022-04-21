@@ -18,60 +18,46 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #aa261516
-background-alt = #Faa261516
+background = #222
+background-alt = #444
 ;foreground = ${xrdb:color7:#222}
-foreground = #f6efdf
-foreground-alt = #f6efdf
-primary = #B3B7D4
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
 secondary = #e60053
-alert = #C7BBC2
+alert = #bd2c40
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 35
+height = 27
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 0.0
-fixed-center = true
-
-bottom = false
+radius = 6.0
+fixed-center = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 0
+line-size = 3
 line-color = #f00
 
-border-size = 0
+border-size = 4
 border-color = #00000000
 
-padding-left = 1
-padding-right = 1
+padding-left = 0
+padding-right = 2
 
 module-margin-left = 1
-module-margin-right = 1
+module-margin-right = 2
 
-;font-0 = azukifontB:pixelsize=10;1
-font-0 = Iosevka Term:pixelsize=12;1
-font-1 = Iosevka Term:fontformat=truetype:size=9
+font-0 = fixed:pixelsize=10;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
-font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-4 = "Font Awesome 6 Free:style=Regular:pixelsize=10;1"
-font-5 = "Font Awesome 6 Free:style=Solid:pixelsize=10;1"
-font-6 = "Font Awesome 6 Free:pixelsize=10;1"
-font-7 = "SourceHanSansJP-Normal:pixelsize=10;1"
 
-
-#modules-left = bspwm i3
-#modules-center =
-#modules-right = filesystem xbacklight pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
-
-modules-left = thunar-icon browser i3 bspwm
-modules-center =
-modules-right = pulseaudio eth memory filesystem cpu date powermenu
-
+modules-left = bspwm i3
+modules-center = mpd
+modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -91,11 +77,8 @@ tray-padding = 2
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-
 [module/xwindow]
 type = internal/xwindow
-format-prefix = "  "
-format-prefix-foreground = ${colors.custom}
 label = %title:0:30:...%
 
 [module/xkeyboard]
@@ -120,7 +103,7 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#9DA3AE}%{F-} %percentage_used%%
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -130,18 +113,18 @@ type = internal/bspwm
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
-label-focused-padding = 1
+label-focused-padding = 2
 
 label-occupied = %index%
-label-occupied-padding = 1
+label-occupied-padding = 2
 
 label-urgent = %index%!
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 1
+label-urgent-padding = 2
 
 label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 1
+label-empty-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -155,7 +138,7 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 1
+label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
@@ -163,11 +146,11 @@ label-mode-background = ${colors.primary}
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
-label-focused-padding = 1
+label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
-label-unfocused-padding = 1
+label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
@@ -178,7 +161,7 @@ label-visible-padding = ${self.label-focused-padding}
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 1
+label-urgent-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -222,7 +205,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage:2%%
@@ -230,7 +213,7 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %percentage_used%%
@@ -259,11 +242,11 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = eth0
+interface = eth1
 interval = 3.0
 
 format-connected-underline = #55aa55
-format-connected-prefix = " "
+format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
@@ -278,59 +261,41 @@ type = internal/date
 interval = 5
 
 date =
-date-alt = " %a, %b %e %Y"
+date-alt = " %Y-%m-%d"
 
 time = %H:%M
-time-alt =
+time-alt = %H:%M:%S
 
-format-prefix = 
-format-prefix-alt = 
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
 label = %date% %time%
-
-[module/datealternate]
-type = internal/date
-interval = 5
-
-date = %a, %b %e |  %H:%M
-;date-alt = " %Y-%m-%d"
-
-;time = %H:%M
-;time-alt = %H:%M:%S
-
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
-
-label = %date% %time%
-
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume =  %percentage%%
+label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted =  muted
+label-muted = 🔇 muted
 label-muted-foreground = #666
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #9DA3AE
-bar-volume-foreground-1 = #9DA3AE
-bar-volume-foreground-2 = #9DA3AE
-bar-volume-foreground-3 = #A7B6C7
-bar-volume-foreground-4 = #A7B6C7
-bar-volume-foreground-5 = #C7BBC2
-bar-volume-foreground-6 = #C7BBC2
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
-bar-volume-indicator = 
+bar-volume-indicator = |
 bar-volume-indicator-font = 2
-bar-volume-fill = ═
+bar-volume-fill = ─
 bar-volume-fill-font = 2
-bar-volume-empty = ═
+bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
@@ -421,10 +386,10 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
-label-open-foreground = ${colors.foreground-alt}
-label-close =  cancel
-label-close-foreground = ${colors.foreground-alt}
+label-open = 
+label-open-foreground = ${colors.secondary}
+label-close =  cancel
+label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
@@ -436,57 +401,12 @@ menu-0-1-exec = menu-open-2
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
-menu-1-1-exec = loginctl reboot
+menu-1-1-exec = sudo reboot
 
 menu-2-0 = power off
-menu-2-0-exec = loginctl poweroff
+menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
-
-[module/rofi]
-type = custom/text
-
-content =  Nya!
-content-foreground = ${colors.foreground-alt}
-
-
-
-
-click-left = rofi -show run -font "azukifontB 14"
-
-[module/thunar-icon]
-type = custom/text
-
-content =  
-content-foreground = ${colors.foreground-alt}
-
-click-left = thunar $HOME
-
-; "click-(left|middle|right)" will be executed using "/usr/bin/env sh -c $COMMAND"
-[module/browser]
-type = custom/text
-
-content =  
-content-foreground = ${colors.foreground-alt}
-
-
-
-; "click-(left|middle|right)" will be executed using "/usr/bin/env sh -c $COMMAND"
-click-left = chromium
-
-[module/ewmh]
-type = internal/xworkspaces
-enable-scroll = true
-format-padding = 1
-;format-foreground = ${colors.accent_2}
-;format-background = ${colors.modb2}
-label-active = " ●"
-label-occupied = " ●"
-label-urgent = " ○"
-label-empty = " ○"
-label-active-foreground = ${colors.foreground-alt}
-label-occupied-foreground = ${colors.foreground-alt-3}
-
 
 [settings]
 screenchange-reload = true
@@ -495,43 +415,6 @@ screenchange-reload = true
 ;compositing-foreground = source
 ;compositing-border = over
 ;pseudo-transparency = false
-
-[module/kernel]
-type = custom/script
-exec = uname -r
-tail = false
-interval = 1024
-
-[module/clock1]
-type = internal/date
-time = %H:%M
-format = <label>
-label = %time%
-label-margin = 2
-format-background = #B2C3D2
-format-foreground = #282c34
-#format-overline = #FFFFFF
-format-underline = #282c34
-
-[module/day1]
-type = internal/date
-time = %a %e
-format = <label>
-label = %time%
-label-margin = 2
-#format-background = #F2DFDFDF
-#format-overline = #282c34
-#format-underline = #282c34
-[module/date-alt]
-type = internal/date
-time = %a, %b %e | %H:%M
-format = <label>
-label = %time%
-label-margin = 2
-format-prefix = "  "
-format-prefix-foreground = ${colors.foreground-alt-2}
-format-background = ${colors.primary}
-
 
 [global/wm]
 margin-top = 5

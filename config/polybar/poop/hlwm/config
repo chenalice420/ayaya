@@ -18,12 +18,14 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #aa261516
-background-alt = #Faa261516
+background = #F2F9F9FB
+background-alt = #F2D2D8E0
 ;foreground = ${xrdb:color7:#222}
-foreground = #f6efdf
-foreground-alt = #f6efdf
-primary = #B3B7D4
+foreground = #181F33
+foreground-alt = #9DA3AE
+foreground-alt-2 = #454951
+foreground-alt-3 = #C6C9CF
+primary = #A7B6C7
 secondary = #e60053
 alert = #C7BBC2
 
@@ -54,8 +56,8 @@ module-margin-left = 1
 module-margin-right = 1
 
 ;font-0 = azukifontB:pixelsize=10;1
-font-0 = Iosevka Term:pixelsize=12;1
-font-1 = Iosevka Term:fontformat=truetype:size=9
+font-0 = Iosevka Custom:pixelsize=9;1
+font-1 = Iosevka Custom:fontformat=truetype:size=9
 font-2 = siji:pixelsize=10;1
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-4 = "Font Awesome 6 Free:style=Regular:pixelsize=10;1"
@@ -65,15 +67,15 @@ font-7 = "SourceHanSansJP-Normal:pixelsize=10;1"
 
 
 #modules-left = bspwm i3
-#modules-center =
+#modules-center = mpd
 #modules-right = filesystem xbacklight pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
 
-modules-left = thunar-icon browser i3 bspwm
-modules-center =
+modules-left = rofi thunar-icon browser ewmh i3 bspwm 
+modules-center = 
 modules-right = pulseaudio eth memory filesystem cpu date powermenu
 
 
-tray-position = right
+tray-position = none
 tray-padding = 2
 ;tray-background = #0063ff
 
@@ -281,10 +283,10 @@ date =
 date-alt = " %a, %b %e %Y"
 
 time = %H:%M
-time-alt =
+time-alt = 
 
-format-prefix = 
-format-prefix-alt = 
+format-prefix =  
+format-prefix-alt =  
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
