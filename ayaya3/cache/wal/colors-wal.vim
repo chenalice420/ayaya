@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/ayaka/wallpaper/__kamisato_ayaka_genshin_impact_drawn_by_river_river_ga__5c3da3e249d084d07783f9dc91ee31cc.jpg"
+let background = "#1a1315"
+let foreground = "#dfcee4"
+let cursor     = "#dfcee4"
+
+" Colors
+let color0  = "#1a1315"
+let color1  = "#966B9C"
+let color2  = "#E16C99"
+let color3  = "#748F81"
+let color4  = "#AA949B"
+let color5  = "#D3AC9F"
+let color6  = "#EFD5AB"
+let color7  = "#dfcee4"
+let color8  = "#9c909f"
+let color9  = "#966B9C"
+let color10 = "#E16C99"
+let color11 = "#748F81"
+let color12 = "#AA949B"
+let color13 = "#D3AC9F"
+let color14 = "#EFD5AB"
+let color15 = "#dfcee4"
