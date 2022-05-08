@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/ayaka/wallpaper/ayaka-genshin-impact-art-1-4k-wallpaper-3840x2160-uhdpaper.com-976.1_a.jpg"
+let background = "#161415"
+let foreground = "#e9e1e9"
+let cursor     = "#e9e1e9"
+
+" Colors
+let color0  = "#161415"
+let color1  = "#718DB1"
+let color2  = "#A193AA"
+let color3  = "#D59FAA"
+let color4  = "#A5ACCE"
+let color5  = "#E0AFD5"
+let color6  = "#C9D0D0"
+let color7  = "#e9e1e9"
+let color8  = "#a39da3"
+let color9  = "#718DB1"
+let color10 = "#A193AA"
+let color11 = "#D59FAA"
+let color12 = "#A5ACCE"
+let color13 = "#E0AFD5"
+let color14 = "#C9D0D0"
+let color15 = "#e9e1e9"
